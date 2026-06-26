@@ -1,0 +1,20 @@
+[browser] [v0] Products fetch error: Error: Failed to fetch products
+    at ShopPage.useEffect.fetchProducts (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/_11_6263._.js:128:35) (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/_11_6263._.js:133:33)
+[browser] [v0] Products fetch error: Error: Failed to fetch products
+    at ShopPage.useEffect.fetchProducts (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/_11_6263._.js:128:35) (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/_11_6263._.js:133:33)
+[browser] [v0] Products fetch error: Error: Failed to fetch products
+    at ShopPage.useEffect.fetchProducts (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/_11_6263._.js:128:35) (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/_11_6263._.js:133:33)
+[browser] [v0] Products fetch error: Error: Failed to fetch products
+    at ShopPage.useEffect.fetchProducts (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/_11_6263._.js:128:35) (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/_11_6263._.js:133:33)
+[browser] [v0] Admin login error: SyntaxError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+SyntaxError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/_0uxc95v._.js:218:21)
+[browser] [v0] Admin login error: SyntaxError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+SyntaxError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/_0uxc95v._.js:218:21)
+[browser] [v0] Admin login error: SyntaxError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+SyntaxError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/_0uxc95v._.js:218:21)
+[browser] [v0] Admin login error: SyntaxError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+SyntaxError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/_0uxc95v._.js:218:21)
+[browser] [v0] Admin login error: SyntaxError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+SyntaxError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/_0uxc95v._.js:218:21)
+[browser] [v0] Admin login error: SyntaxError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+SyntaxError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/_0uxc95v._.js:218:21)

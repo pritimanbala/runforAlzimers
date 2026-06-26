@@ -1,0 +1,59 @@
+
+> my-project@0.1.0 dev
+> next dev -H 127.0.0.1
+
+▲ Next.js 16.2.6 (Turbopack)
+- Local:         http://127.0.0.1:3000
+- Network:       http://127.0.0.1:3000
+- Environments: .env
+✓ Ready in 7.6s
+Creating turbopack project {
+  dir: 'C:\\Users\\priti\\Desktop\\Project Shaastra\\App Alzimers',
+  testMode: true
+}
+
+ GET / 200 in 1983ms (next.js: 1207ms, application-code: 776ms)
+ GET / 200 in 208ms (next.js: 17ms, application-code: 191ms)
+ GET /register 200 in 176ms (next.js: 96ms, application-code: 79ms)
+ GET /login 200 in 168ms (next.js: 79ms, application-code: 89ms)
+ POST /api/auth/login 400 in 5.3s (next.js: 3.6s, application-code: 1685ms)
+ POST /api/auth/login 200 in 370ms (next.js: 12ms, application-code: 358ms)
+ GET /dashboard 200 in 280ms (next.js: 128ms, application-code: 152ms)
+ GET /shop 200 in 156ms (next.js: 93ms, application-code: 63ms)
+ GET /api/shop/products 404 in 650ms (next.js: 124ms, application-code: 526ms)
+ GET /api/shop/products 404 in 260ms (next.js: 52ms, application-code: 207ms)
+ POST /api/create-order 200 in 1715ms (next.js: 1134ms, application-code: 581ms)
+ POST /api/create-order 200 in 816ms (next.js: 8ms, application-code: 808ms)
+ POST /api/verify-payment 200 in 380ms (next.js: 363ms, application-code: 18ms)
+ GET /dashboard 200 in 102ms (next.js: 12ms, application-code: 90ms)
+ GET /purchases 200 in 164ms (next.js: 87ms, application-code: 78ms)
+ GET /dashboard 200 in 67ms (next.js: 8ms, application-code: 59ms)
+ GET /purchases 200 in 81ms (next.js: 10ms, application-code: 71ms)
+ GET /shop 200 in 69ms (next.js: 10ms, application-code: 59ms)
+ GET /api/shop/products 404 in 412ms (next.js: 21ms, application-code: 390ms)
+ GET /api/shop/products 404 in 227ms (next.js: 71ms, application-code: 155ms)
+ POST /api/create-order 200 in 446ms (next.js: 7ms, application-code: 439ms)
+✓ Compiled in 197ms
+ GET /shop 200 in 331ms (next.js: 209ms, application-code: 123ms)
+ GET /dashboard 200 in 116ms (next.js: 28ms, application-code: 88ms)
+ GET /login 200 in 306ms (next.js: 226ms, application-code: 79ms)
+✓ Compiled in 142ms
+ GET /login 200 in 366ms (next.js: 237ms, application-code: 129ms)
+✓ Compiled in 144ms
+ GET /login 200 in 350ms (next.js: 240ms, application-code: 110ms)
+✓ Compiled in 132ms
+ GET /login 200 in 327ms (next.js: 223ms, application-code: 104ms)
+✓ Compiled in 140ms
+ GET /login 200 in 332ms (next.js: 233ms, application-code: 98ms)
+ GET /dashboard 200 in 425ms (next.js: 35ms, application-code: 390ms)
+ GET /login 200 in 101ms (next.js: 19ms, application-code: 81ms)
+ GET /login 200 in 369ms (next.js: 167ms, application-code: 202ms)
+ GET /register 200 in 291ms (next.js: 210ms, application-code: 81ms)
+ GET / 200 in 68ms (next.js: 22ms, application-code: 46ms)
+ GET /admin 200 in 1049ms (next.js: 984ms, application-code: 65ms)
+ POST /api/admin/login 404 in 263ms (next.js: 29ms, application-code: 234ms)
+ POST /api/admin/login 404 in 117ms (next.js: 17ms, application-code: 101ms)
+ POST /api/admin/login 404 in 101ms (next.js: 12ms, application-code: 89ms)
+ POST /api/admin/login 404 in 138ms (next.js: 17ms, application-code: 121ms)
+ POST /api/admin/login 404 in 105ms (next.js: 13ms, application-code: 93ms)
+ POST /api/admin/login 404 in 236ms (next.js: 26ms, application-code: 210ms)

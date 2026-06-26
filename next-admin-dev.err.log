@@ -1,0 +1,424 @@
+⚠ Fast Refresh had to perform a full reload when ./app/admin/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⨯ ./app/profile/edit/page.tsx:48:26
+await isn't allowed in non-async function
+  [90m46 |[0m
+  [90m47 |[0m       [36mtry[0m {
+[31m[1m>[0m [90m48 |[0m         [36mconst[0m response = [36mawait[0m fetch([32m'/api/auth/register'[0m, {
+  [90m   |[0m                          [31m[1m^^^^^[0m
+  [90m49 |[0m           method: [32m'POST'[0m,
+  [90m50 |[0m           headers: { [32m'Content-Type'[0m: [32m'application/json'[0m },
+  [90m51 |[0m           body: [33mJSON[0m.stringify({
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./app/profile/edit/page.tsx [Client Component Browser]
+    ./app/profile/edit/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/profile/edit/page.tsx [Client Component SSR]
+    ./app/profile/edit/page.tsx [Server Component]
+
+
+
+./app/profile/edit/page.tsx:59:22
+await isn't allowed in non-async function
+  [90m57 |[0m           }),
+  [90m58 |[0m         })
+[31m[1m>[0m [90m59 |[0m         [36mconst[0m data = [36mawait[0m response.json()
+  [90m   |[0m                      [31m[1m^^^^^[0m
+  [90m60 |[0m
+  [90m61 |[0m         [36mif[0m (!response.ok || !data.success) {
+  [90m62 |[0m           setError(data.message || [32m'Registration failed'[0m)
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./app/profile/edit/page.tsx [Client Component Browser]
+    ./app/profile/edit/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/profile/edit/page.tsx [Client Component SSR]
+    ./app/profile/edit/page.tsx [Server Component]
+
+
+⨯ ./app/profile/edit/page.tsx:48:26
+await isn't allowed in non-async function
+  [90m46 |[0m
+  [90m47 |[0m       [36mtry[0m {
+[31m[1m>[0m [90m48 |[0m         [36mconst[0m response = [36mawait[0m fetch([32m'/api/auth/register'[0m, {
+  [90m   |[0m                          [31m[1m^^^^^[0m
+  [90m49 |[0m           method: [32m'POST'[0m,
+  [90m50 |[0m           headers: { [32m'Content-Type'[0m: [32m'application/json'[0m },
+  [90m51 |[0m           body: [33mJSON[0m.stringify({
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./app/profile/edit/page.tsx [Client Component Browser]
+    ./app/profile/edit/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/profile/edit/page.tsx [Client Component SSR]
+    ./app/profile/edit/page.tsx [Server Component]
+
+
+
+./app/profile/edit/page.tsx:59:22
+await isn't allowed in non-async function
+  [90m57 |[0m           }),
+  [90m58 |[0m         })
+[31m[1m>[0m [90m59 |[0m         [36mconst[0m data = [36mawait[0m response.json()
+  [90m   |[0m                      [31m[1m^^^^^[0m
+  [90m60 |[0m
+  [90m61 |[0m         [36mif[0m (!response.ok || !data.success) {
+  [90m62 |[0m           setError(data.message || [32m'Registration failed'[0m)
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./app/profile/edit/page.tsx [Client Component Browser]
+    ./app/profile/edit/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/profile/edit/page.tsx [Client Component SSR]
+    ./app/profile/edit/page.tsx [Server Component]
+
+
+⨯ ./app/profile/edit/page.tsx:48:26
+await isn't allowed in non-async function
+  [90m46 |[0m
+  [90m47 |[0m       [36mtry[0m {
+[31m[1m>[0m [90m48 |[0m         [36mconst[0m response = [36mawait[0m fetch([32m'/api/auth/register'[0m, {
+  [90m   |[0m                          [31m[1m^^^^^[0m
+  [90m49 |[0m           method: [32m'POST'[0m,
+  [90m50 |[0m           headers: { [32m'Content-Type'[0m: [32m'application/json'[0m },
+  [90m51 |[0m           body: [33mJSON[0m.stringify({
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./app/profile/edit/page.tsx [Client Component Browser]
+    ./app/profile/edit/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/profile/edit/page.tsx [Client Component SSR]
+    ./app/profile/edit/page.tsx [Server Component]
+
+
+
+./app/profile/edit/page.tsx:59:22
+await isn't allowed in non-async function
+  [90m57 |[0m           }),
+  [90m58 |[0m         })
+[31m[1m>[0m [90m59 |[0m         [36mconst[0m data = [36mawait[0m response.json()
+  [90m   |[0m                      [31m[1m^^^^^[0m
+  [90m60 |[0m
+  [90m61 |[0m         [36mif[0m (!response.ok || !data.success) {
+  [90m62 |[0m           setError(data.message || [32m'Registration failed'[0m)
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./app/profile/edit/page.tsx [Client Component Browser]
+    ./app/profile/edit/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/profile/edit/page.tsx [Client Component SSR]
+    ./app/profile/edit/page.tsx [Server Component]
+
+
+[browser] Uncaught Error: ./app/profile/edit/page.tsx:59:22
+await isn't allowed in non-async function
+  57 |           }),
+  58 |         })
+> 59 |         const data = await response.json()
+     |                      ^^^^^
+  60 |
+  61 |         if (!response.ok || !data.success) {
+  62 |           setError(data.message || 'Registration failed')
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./app/profile/edit/page.tsx [Client Component Browser]
+    ./app/profile/edit/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/profile/edit/page.tsx [Client Component SSR]
+    ./app/profile/edit/page.tsx [Server Component]
+
+
+    at <unknown> (Error: ./app/profile/edit/page.tsx:59:22)
+    at <unknown> (Error: (./app/profile/edit/page.tsx:59:22)
+[browser] Uncaught Error: ./app/profile/edit/page.tsx:59:22
+await isn't allowed in non-async function
+  57 |           }),
+  58 |         })
+> 59 |         const data = await response.json()
+     |                      ^^^^^
+  60 |
+  61 |         if (!response.ok || !data.success) {
+  62 |           setError(data.message || 'Registration failed')
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./app/profile/edit/page.tsx [Client Component Browser]
+    ./app/profile/edit/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/profile/edit/page.tsx [Client Component SSR]
+    ./app/profile/edit/page.tsx [Server Component]
+
+
+    at <unknown> (Error: ./app/profile/edit/page.tsx:59:22)
+    at <unknown> (Error: (./app/profile/edit/page.tsx:59:22)
+[browser] ./app/profile/edit/page.tsx:59:22
+await isn't allowed in non-async function
+  57 |           }),
+  58 |         })
+> 59 |         const data = await response.json()
+     |                      ^^^^^
+  60 |
+  61 |         if (!response.ok || !data.success) {
+  62 |           setError(data.message || 'Registration failed')
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./app/profile/edit/page.tsx [Client Component Browser]
+    ./app/profile/edit/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/profile/edit/page.tsx [Client Component SSR]
+    ./app/profile/edit/page.tsx [Server Component] 
+    at handleErrors (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2774:21)
+    at processMessage (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2835:28)
+    at <unknown> (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2680:13)
+    at WebSocket.handleMessage (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2325:17) (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2774:21)
+[browser] ./app/profile/edit/page.tsx:59:22
+await isn't allowed in non-async function
+  57 |           }),
+  58 |         })
+> 59 |         const data = await response.json()
+     |                      ^^^^^
+  60 |
+  61 |         if (!response.ok || !data.success) {
+  62 |           setError(data.message || 'Registration failed')
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./app/profile/edit/page.tsx [Client Component Browser]
+    ./app/profile/edit/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/profile/edit/page.tsx [Client Component SSR]
+    ./app/profile/edit/page.tsx [Server Component] 
+    at handleErrors (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2774:21)
+    at processMessage (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2835:28)
+    at <unknown> (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2680:13)
+    at WebSocket.handleMessage (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2325:17) (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2774:21)
+[browser] ./app/profile/edit/page.tsx:59:22
+await isn't allowed in non-async function
+  57 |           }),
+  58 |         })
+> 59 |         const data = await response.json()
+     |                      ^^^^^
+  60 |
+  61 |         if (!response.ok || !data.success) {
+  62 |           setError(data.message || 'Registration failed')
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./app/profile/edit/page.tsx [Client Component Browser]
+    ./app/profile/edit/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/profile/edit/page.tsx [Client Component SSR]
+    ./app/profile/edit/page.tsx [Server Component] 
+    at handleErrors (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2774:21)
+    at processMessage (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2835:28)
+    at <unknown> (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2680:13)
+    at WebSocket.handleMessage (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2325:17) (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2774:21)
+[browser] ./app/profile/edit/page.tsx:59:22
+await isn't allowed in non-async function
+  57 |           }),
+  58 |         })
+> 59 |         const data = await response.json()
+     |                      ^^^^^
+  60 |
+  61 |         if (!response.ok || !data.success) {
+  62 |           setError(data.message || 'Registration failed')
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./app/profile/edit/page.tsx [Client Component Browser]
+    ./app/profile/edit/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/profile/edit/page.tsx [Client Component SSR]
+    ./app/profile/edit/page.tsx [Server Component] 
+    at handleErrors (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2774:21)
+    at processMessage (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2835:28)
+    at <unknown> (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2680:13)
+    at WebSocket.handleMessage (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2325:17) (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2774:21)
+[browser] ./app/profile/edit/page.tsx:59:22
+await isn't allowed in non-async function
+  57 |           }),
+  58 |         })
+> 59 |         const data = await response.json()
+     |                      ^^^^^
+  60 |
+  61 |         if (!response.ok || !data.success) {
+  62 |           setError(data.message || 'Registration failed')
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./app/profile/edit/page.tsx [Client Component Browser]
+    ./app/profile/edit/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/profile/edit/page.tsx [Client Component SSR]
+    ./app/profile/edit/page.tsx [Server Component] 
+    at handleErrors (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2774:21)
+    at processMessage (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2835:28)
+    at <unknown> (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2680:13)
+    at WebSocket.handleMessage (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2325:17) (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2774:21)
+[browser] ./app/profile/edit/page.tsx:59:22
+await isn't allowed in non-async function
+  57 |           }),
+  58 |         })
+> 59 |         const data = await response.json()
+     |                      ^^^^^
+  60 |
+  61 |         if (!response.ok || !data.success) {
+  62 |           setError(data.message || 'Registration failed')
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./app/profile/edit/page.tsx [Client Component Browser]
+    ./app/profile/edit/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/profile/edit/page.tsx [Client Component SSR]
+    ./app/profile/edit/page.tsx [Server Component] 
+    at handleErrors (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2774:21)
+    at processMessage (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2835:28)
+    at <unknown> (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2680:13)
+    at WebSocket.handleMessage (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2325:17) (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2774:21)
+[browser] ./app/profile/edit/page.tsx:59:22
+await isn't allowed in non-async function
+  57 |           }),
+  58 |         })
+> 59 |         const data = await response.json()
+     |                      ^^^^^
+  60 |
+  61 |         if (!response.ok || !data.success) {
+  62 |           setError(data.message || 'Registration failed')
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./app/profile/edit/page.tsx [Client Component Browser]
+    ./app/profile/edit/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/profile/edit/page.tsx [Client Component SSR]
+    ./app/profile/edit/page.tsx [Server Component] 
+    at handleErrors (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2774:21)
+    at processMessage (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2835:28)
+    at <unknown> (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2680:13)
+    at WebSocket.handleMessage (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2325:17) (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2774:21)
+[browser] ./app/profile/edit/page.tsx:59:22
+await isn't allowed in non-async function
+  57 |           }),
+  58 |         })
+> 59 |         const data = await response.json()
+     |                      ^^^^^
+  60 |
+  61 |         if (!response.ok || !data.success) {
+  62 |           setError(data.message || 'Registration failed')
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./app/profile/edit/page.tsx [Client Component Browser]
+    ./app/profile/edit/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/profile/edit/page.tsx [Client Component SSR]
+    ./app/profile/edit/page.tsx [Server Component] 
+    at handleErrors (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2774:21)
+    at processMessage (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2835:28)
+    at <unknown> (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2680:13)
+    at WebSocket.handleMessage (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2325:17) (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2774:21)
+[browser] ./app/profile/edit/page.tsx:59:22
+await isn't allowed in non-async function
+  57 |           }),
+  58 |         })
+> 59 |         const data = await response.json()
+     |                      ^^^^^
+  60 |
+  61 |         if (!response.ok || !data.success) {
+  62 |           setError(data.message || 'Registration failed')
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./app/profile/edit/page.tsx [Client Component Browser]
+    ./app/profile/edit/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/profile/edit/page.tsx [Client Component SSR]
+    ./app/profile/edit/page.tsx [Server Component] 
+    at handleErrors (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2774:21)
+    at processMessage (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2835:28)
+    at <unknown> (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2680:13)
+    at WebSocket.handleMessage (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2325:17) (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2774:21)
+[browser] ./app/profile/edit/page.tsx:59:22
+await isn't allowed in non-async function
+  57 |           }),
+  58 |         })
+> 59 |         const data = await response.json()
+     |                      ^^^^^
+  60 |
+  61 |         if (!response.ok || !data.success) {
+  62 |           setError(data.message || 'Registration failed')
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./app/profile/edit/page.tsx [Client Component Browser]
+    ./app/profile/edit/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/profile/edit/page.tsx [Client Component SSR]
+    ./app/profile/edit/page.tsx [Server Component] 
+    at handleErrors (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2774:21)
+    at processMessage (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2835:28)
+    at <unknown> (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2680:13)
+    at WebSocket.handleMessage (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2325:17) (file://C:/Users/priti/Desktop/Project Shaastra/App Alzimers/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2774:21)
