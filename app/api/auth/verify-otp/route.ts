@@ -1,11 +1,6 @@
-import { getDb } from '@/lib/mongodb'
 import { hashOtp, signAuthToken } from '@/lib/auth-server'
-import {
-  toPublicUser,
-  verifyOtpSchema,
-  type OtpDocument,
-  type UserDocument,
-} from '@/lib/schemas'
+import { prisma } from '@/lib/prisma'
+import { toPublicUser, verifyOtpSchema } from '@/lib/schemas'
 
 export const runtime = 'nodejs'
 
@@ -25,11 +20,18 @@ export async function POST(request: Request) {
       )
     }
 
-    const db = await getDb()
-    const otpRecord = await db.collection<OtpDocument>('otps').findOne({
-      email: parsed.data.email,
-      otpHash: hashOtp(parsed.data.otp),
-      expiresAt: { $gt: new Date() },
+    // const db = await getDb()
+    // const otpRecord = await db.collection<OtpDocument>('otps').findOne({
+    //   email: parsed.data.email,
+    //   otpHash: hashOtp(parsed.data.otp),
+    //   expiresAt: { $gt: new Date() },
+    // })
+
+    const otpRecord = await prisma.otp.findFirst({
+      where: {
+        email: parsed.data.email,
+        otpHash: hashOtp(parsed.data.otp),
+      },
     })
 
     if (!otpRecord) {
@@ -43,13 +45,20 @@ export async function POST(request: Request) {
       )
     }
 
-    const updatedUser = await db
-      .collection<UserDocument>('users')
-      .findOneAndUpdate(
-        { email: parsed.data.email },
-        { $set: { isVerified: true, updatedAt: new Date() } },
-        { returnDocument: 'after' }
-      )
+    // const updatedUser = await db
+    //   .collection<UserDocument>('users')
+    //   .findOneAndUpdate(
+    //     { email: parsed.data.email },
+    //     { $set: { isVerified: true, updatedAt: new Date() } },
+    //     { returnDocument: 'after' }
+    //   )
+
+    const updatedUser = await prisma.user.update({
+      where: { email: parsed.data.email },
+      data: {
+        isVerified: true,
+      },
+    })
 
     if (!updatedUser) {
       return Response.json(
@@ -62,7 +71,9 @@ export async function POST(request: Request) {
       )
     }
 
-    await db.collection<OtpDocument>('otps').deleteMany({ email: parsed.data.email })
+    await prisma.otp.deleteMany({
+      where: { email: parsed.data.email },
+    })
 
     const publicUser = toPublicUser(updatedUser)
 

@@ -1,7 +1,9 @@
 import { ObjectId } from 'mongodb'
 import { getBearerToken, verifyAuthToken } from '@/lib/auth-server'
 import { getDb } from '@/lib/mongodb'
-import { productSchema, type ProductDocument } from '@/lib/schemas'
+import { prisma } from '@/lib/prisma'
+import { productSchema } from '@/lib/schemas'
+// import { productSchema, type ProductDocument } from '@/lib/schemas'
 
 export const runtime = 'nodejs'
 
@@ -11,9 +13,17 @@ function requireAdmin(request: Request) {
   return payload?.role === 'admin' ? payload : null
 }
 
+export interface ProductDocument {
+  name: string
+  description: string
+  price: number
+  category: string
+  isActive: boolean
+  createdAt: Date
+  updatedAt: Date
+}
 function serializeProduct(product: ProductDocument) {
   return {
-    id: product._id.toString(),
     name: product.name,
     description: product.description,
     price: product.price,
@@ -32,12 +42,17 @@ export async function GET(request: Request) {
       )
     }
 
-    const db = await getDb()
-    const products = await db
-      .collection<ProductDocument>('products')
-      .find({})
-      .sort({ createdAt: -1 })
-      .toArray()
+    // const db = await getDb()
+    // const products = await db
+    //   .collection<ProductDocument>('products')
+    //   .find({})
+    //   .sort({ createdAt: -1 })
+    //   .toArray()
+    const products = await prisma.product.findMany({
+      orderBy: {
+        createdAt: 'desc',
+      },
+    })
 
     return Response.json({
       success: true,
@@ -46,10 +61,7 @@ export async function GET(request: Request) {
   } catch (error) {
     console.error('Admin products fetch error:', error)
 
-    return Response.json(
-      { success: false, message: 'Unable to load products' },
-      { status: 500 }
-    )
+    return Response.json({ success: false, message: 'Unable to load products' }, { status: 500 })
   }
 }
 
@@ -75,10 +87,9 @@ export async function POST(request: Request) {
       )
     }
 
-    const db = await getDb()
+    // const db = await getDb()
     const now = new Date()
     const product: ProductDocument = {
-      _id: new ObjectId(),
       name: parsed.data.name,
       description: parsed.data.description,
       price: parsed.data.price,
@@ -88,7 +99,29 @@ export async function POST(request: Request) {
       updatedAt: now,
     }
 
-    await db.collection<ProductDocument>('products').insertOne(product)
+    //     model Product {
+    //   id          String   @id @default(cuid())
+    //   name        String
+    //   description String
+    //   price       Int
+    //   category    String
+    //   isActive    Boolean  @default(true)
+    //   createdAt   DateTime @default(now())
+    //   updatedAt   DateTime @updatedAt
+    // }
+
+    // await db.collection<ProductDocument>('products').insertOne(product)
+    await prisma.product.create({
+      data: {
+        name: parsed.data.name,
+        description: parsed.data.description,
+        price: parsed.data.price,
+        category: parsed.data.category,
+        isActive: true,
+        createdAt: now,
+        updatedAt: now,
+      },
+    })
 
     return Response.json(
       {
@@ -101,9 +134,6 @@ export async function POST(request: Request) {
   } catch (error) {
     console.error('Admin product create error:', error)
 
-    return Response.json(
-      { success: false, message: 'Unable to add product' },
-      { status: 500 }
-    )
+    return Response.json({ success: false, message: 'Unable to add product' }, { status: 500 })
   }
 }

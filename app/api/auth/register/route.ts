@@ -1,7 +1,6 @@
-import { getDb } from '@/lib/mongodb'
+import { prisma } from '@/lib/prisma'
 import { hashOtp, hashPassword, generateOtp } from '@/lib/auth-server'
-import { registerSchema, type OtpDocument, type UserDocument } from '@/lib/schemas'
-import { ObjectId } from 'mongodb'
+import { registerSchema } from '@/lib/schemas'
 import { sendOtpEmail } from '@/lib/mailer'
 
 export const runtime = 'nodejs'
@@ -22,48 +21,72 @@ export async function POST(request: Request) {
       )
     }
 
-    const db = await getDb()
-    const users = db.collection<UserDocument>('users')
-    const otps = db.collection<OtpDocument>('otps')
-    const existingUser = await users.findOne({ email: parsed.data.email })
+    // MongoDB equivalent:
+    // users.findOne({ $or: [{ email }, { phone }] })
+    //
+    // Prisma equivalent:
+    // Query the User model through prisma.user and use OR for multiple checks.
+    const existingUser = await prisma.user.findFirst({
+      where: {
+        OR: [
+          { email: parsed.data.email },
+          { phone: parsed.data.phone },
+        ],
+      },
+    })
 
     if (existingUser) {
       return Response.json(
         {
           success: false,
-          message: 'Email already exists',
-          code: 'email_exists',
+          message:
+            existingUser.email === parsed.data.email
+              ? 'Email already exists'
+              : 'Phone number already exists',
+          code: existingUser.email === parsed.data.email ? 'email_exists' : 'phone_exists',
         },
         { status: 400 }
       )
     }
 
-    await users.createIndex({ email: 1 }, { unique: true })
-    await otps.createIndex({ expiresAt: 1 }, { expireAfterSeconds: 0 })
-
-    const now = new Date()
-    const result = await users.insertOne({
-      firstName: parsed.data.firstName,
-      lastName: parsed.data.lastName,
-      email: parsed.data.email,
-      phone: parsed.data.phone,
-      passwordHash: hashPassword(parsed.data.password),
-      role: 'participant',
-      isVerified: false,
-      createdAt: now,
-      updatedAt: now,
-      _id: new ObjectId(),
-      merchBought: [],
+    // MongoDB indexes like users.createIndex(...) move into schema.prisma:
+    // email String @unique
+    // phone String @unique
+    //
+    // MongoDB equivalent:
+    // users.insertOne({ firstName, ..., passwordHash, role, _id })
+    //
+    // Prisma equivalent:
+    // prisma.user.create({ data: ... })
+    // Match the field names from model User: password, isAdmin, isVerified.
+    const user = await prisma.user.create({
+      data: {
+        firstName: parsed.data.firstName,
+        lastName: parsed.data.lastName,
+        email: parsed.data.email,
+        phone: parsed.data.phone,
+        password: hashPassword(parsed.data.password),
+        isAdmin: false,
+        isVerified: false,
+      },
     })
 
     const otp = generateOtp()
-    await otps.deleteMany({ email: parsed.data.email })
-    await otps.insertOne({
-      email: parsed.data.email,
-      otpHash: hashOtp(otp),
-      expiresAt: new Date(Date.now() + 5 * 60 * 1000),
-      createdAt: now,
-      _id: new ObjectId(),
+    // MongoDB equivalent:
+    // otps.deleteMany({ email })
+    // otps.insertOne({ email, otpHash, expiresAt, _id })
+    //
+    // Prisma equivalent:
+    // Use prisma.otp against model Otp. id and createdAt are created by Prisma.
+    await prisma.otp.deleteMany({
+      where: { email: parsed.data.email },
+    })
+    await prisma.otp.create({
+      data: {
+        email: parsed.data.email,
+        otpHash: hashOtp(otp),
+        expiresAt: new Date(Date.now() + 5 * 60 * 1000),
+      },
     })
 
     await sendOtpEmail({
@@ -76,7 +99,8 @@ export async function POST(request: Request) {
       {
         success: true,
         message: 'Registration successful. Please verify your email.',
-        userId: result.insertedId.toString(),
+        // MongoDB returns result.insertedId; Prisma returns the created user row.
+        userId: user.id,
       },
       { status: 201 }
     )

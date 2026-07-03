@@ -1,6 +1,6 @@
-import { getDb } from '@/lib/mongodb'
-import { loginSchema, toPublicUser, type UserDocument } from '@/lib/schemas'
+import { loginSchema, toPublicUser } from '@/lib/schemas'
 import { signAuthToken, verifyPassword } from '@/lib/auth-server'
+import { prisma } from '@/lib/prisma'
 
 export const runtime = 'nodejs'
 
@@ -20,12 +20,13 @@ export async function POST(request: Request) {
       )
     }
 
-    const db = await getDb()
-    const user = await db
-      .collection<UserDocument>('users')
-      .findOne({ email: parsed.data.email })
+    console.log('DATABASE_URL =', process.env.DATABASE_URL)
 
-    if (!user || !verifyPassword(parsed.data.password, user.passwordHash)) {
+    const user = await prisma.user.findFirst({
+      where: { email: parsed.data.email },
+    })
+
+    if (!user || !verifyPassword(parsed.data.password, user.password)) {
       return Response.json(
         {
           success: false,
@@ -69,4 +70,3 @@ export async function POST(request: Request) {
     )
   }
 }
-

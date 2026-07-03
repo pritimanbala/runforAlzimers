@@ -1,21 +1,29 @@
-import { getDb } from '@/lib/mongodb'
-import type { ProductDocument } from '@/lib/schemas'
+// import { getDb } from '@/lib/mongodb'
+// import type { ProductDocument } from '@/lib/schemas'
+import { prisma } from '@/lib/prisma'
 
 export const runtime = 'nodejs'
 
 export async function GET() {
   try {
-    const db = await getDb()
-    const products = await db
-      .collection<ProductDocument>('products')
-      .find({ isActive: true })
-      .sort({ createdAt: -1 })
-      .toArray()
+    // const db = await getDb()
+    // const products = await db
+    //   .collection<ProductDocument>('products')
+    //   .find({ isActive: true })
+    //   .sort({ createdAt: -1 })
+    //   .toArray()
+
+    const products = await prisma.product.findMany({
+      where: { isActive: true },
+      orderBy: {
+        createdAt: 'desc',
+      },
+    })
 
     return Response.json({
       success: true,
       products: products.map((product) => ({
-        id: product._id.toString(),
+        id: product.id.toString(),
         name: product.name,
         description: product.description,
         price: product.price,

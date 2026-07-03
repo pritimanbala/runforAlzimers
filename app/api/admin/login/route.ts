@@ -1,5 +1,5 @@
-import { getDb } from '@/lib/mongodb'
-import { loginSchema, toPublicUser, type UserDocument } from '@/lib/schemas'
+import { prisma } from '@/lib/prisma'
+import { loginSchema, type PublicUser } from '@/lib/schemas'
 import { signAuthToken, verifyPassword } from '@/lib/auth-server'
 
 export const runtime = 'nodejs'
@@ -19,31 +19,32 @@ export async function POST(request: Request) {
       )
     }
 
-    const db = await getDb()
-    const user = await db.collection<UserDocument>('users').findOne({ email: parsed.data.email })
+    const user = await prisma.user.findUnique({
+      where: { email: parsed.data.email },
+    })
 
-    if (!user || !verifyPassword(parsed.data.password, user.passwordHash)) {
+    if (!user || !verifyPassword(parsed.data.password, user.password)) {
       return Response.json(
         { success: false, message: 'Invalid admin email or password' },
         { status: 400 }
       )
     }
 
-    if (user.role !== 'admin') {
+    if (!user.isAdmin) {
       return Response.json(
         { success: false, message: 'This account does not have admin access' },
         { status: 403 }
       )
     }
 
-    if (!user.isVerified) {
-      return Response.json(
-        { success: false, message: 'Please verify this admin account before logging in' },
-        { status: 401 }
-      )
+    const publicUser: PublicUser = {
+      id: user.id,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      email: user.email,
+      phone: user.phone,
+      role: 'admin',
     }
-
-    const publicUser = toPublicUser(user)
 
     return Response.json({
       success: true,

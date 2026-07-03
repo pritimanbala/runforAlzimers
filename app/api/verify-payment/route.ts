@@ -2,7 +2,8 @@ import crypto from 'crypto'
 import { ObjectId } from 'mongodb'
 import { getBearerToken, verifyAuthToken } from '@/lib/auth-server'
 import { getDb } from '@/lib/mongodb'
-import type { ProductDocument, PurchaseDocument } from '@/lib/schemas'
+import { prisma } from '@/lib/prisma'
+// import type { ProductDocument, PurchaseDocument } from '@/lib/schemas'
 
 export const runtime = 'nodejs'
 
@@ -97,13 +98,20 @@ export async function POST(request: Request) {
         .filter((item): item is PurchaseItemInput => Boolean(item))
 
       if (requestedItems.length > 0) {
-        const db = await getDb()
+        // const db = await getDb()
         const productIds = requestedItems.map((item) => new ObjectId(item.productId))
-        const products = await db //finding the product from products
-          .collection<ProductDocument>('products')
-          .find({ _id: { $in: productIds }, isActive: true })
-          .toArray()
-        const productsById = new Map(products.map((product) => [product._id.toString(), product]))
+        // const products = await db //finding the product from products
+        //   .collection<ProductDocument>('products')
+        //   .find({ _id: { $in: productIds }, isActive: true })
+        //   .toArray()
+        const products = await prisma.product.findMany({
+          where: {
+            id: productIds,
+            isActive: true,
+          },
+        })
+
+        const productsById = new Map(products.map((product) => [product.id.toString(), product]))
         const purchaseItems = requestedItems
           .map((item) => {
             const product = productsById.get(item.productId)
@@ -133,27 +141,27 @@ export async function POST(request: Request) {
           )
         }
 
-        const purchases = db.collection<PurchaseDocument>('purchases')
+        // const purchases = db.collection<PurchaseDocument>('purchases')
+
+        const purchases = await prisma.purchase.findMany()
         const amount = purchaseItems.reduce((sum, item) => sum + item.price * item.quantity, 0)
 
-        await purchases.updateOne(
-          { paymentId },
-          {
-            $setOnInsert: {
-              _id: new ObjectId(),
-              userId: new ObjectId(payload.sub),
-              userEmail: payload.email,
-              orderId,
-              paymentId,
-              items: purchaseItems,
-              amount,
-              currency: typeof currency === 'string' ? currency : 'INR',
-              status: 'completed',
-              createdAt: new Date(),
-            },
+        await prisma.purchase.updateMany({
+          where: {
+            paymentId: paymentId,
           },
-          { upsert: true }
-        )
+          data: {
+            userId: payload.sub,
+            userEmail: payload.email,
+            orderId: orderId,
+            paymentId: paymentId,
+            items: purchaseItems,
+            amount: amount,
+            currency: typeof currency === 'string' ? currency : 'INR',
+            status: 'completed',
+            createdAt: new Date(),
+          },
+        })
       }
     }
 

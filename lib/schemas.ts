@@ -1,4 +1,3 @@
-import { ObjectId } from 'mongodb'
 import { z } from 'zod'
 
 export const registerSchema = z.object({
@@ -35,71 +34,22 @@ export type PublicUser = {
   role: 'participant' | 'admin'
 }
 
-export type UserDocument = {
-  _id: ObjectId
+type PublicUserInput = {
+  id: string
   firstName: string
   lastName: string
   email: string
   phone: string
-  passwordHash: string
-  role: 'participant' | 'admin'
-  isVerified: boolean
-  createdAt: Date
-  updatedAt: Date
-  merchBought?: Array<{
-    productId: string
-    name: string
-    type: 'pass' | 'merchandise'
-    price: number
-    quantity: number
-  }>
+  isAdmin: boolean
 }
 
-export type OtpDocument = {
-  _id: ObjectId
-  email: string
-  otpHash: string
-  expiresAt: Date
-  createdAt: Date
-}
-
-export type ProductDocument = {
-  _id: ObjectId
-  name: string
-  description: string
-  price: number
-  category: 'pass' | 'merchandise'
-  isActive: boolean
-  createdAt: Date
-  updatedAt: Date
-}
-
-export type PurchaseDocument = {
-  _id: ObjectId
-  userId: ObjectId
-  userEmail: string
-  orderId: string
-  paymentId: string
-  items: Array<{
-    productId: string
-    name: string
-    type: 'pass' | 'merchandise'
-    price: number
-    quantity: number
-  }>
-  amount: number
-  currency: string
-  status: 'completed' | 'pending'
-  createdAt: Date
-}
-
-export function toPublicUser(user: UserDocument): PublicUser {
+export function toPublicUser(user: PublicUserInput): PublicUser {
   return {
-    id: user._id.toString(),
+    id: user.id,
     firstName: user.firstName,
     lastName: user.lastName,
     email: user.email,
     phone: user.phone,
-    role: user.role,
+    role: user.isAdmin ? 'admin' : 'participant',
   }
 }

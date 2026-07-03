@@ -1,6 +1,7 @@
 import { getBearerToken, verifyAuthToken } from '@/lib/auth-server'
-import { getDb } from '@/lib/mongodb'
-import type { PurchaseDocument, UserDocument } from '@/lib/schemas'
+// import { getDb } from '@/lib/mongodb'
+// import type { PurchaseDocument, UserDocument } from '@/lib/schemas'
+import { prisma } from '@/lib/prisma'
 
 export const runtime = 'nodejs'
 
@@ -16,12 +17,16 @@ export async function GET(request: Request) {
       )
     }
 
-    const db = await getDb()
-    const users = await db
-      .collection<UserDocument>('users')
-      .find({ role: 'participant' })
-      .sort({ createdAt: -1 })
-      .toArray()
+    // const db = await getDb()
+    // const users = await db
+    //   .collection<UserDocument>('users')
+    //   .find({ role: 'participant' })
+    //   .sort({ createdAt: -1 })
+    //   .toArray()
+
+    const users = await prisma.user.findMany({
+      where: { isAdmin: false },
+    })
 
     const userIds = users.map((user) => user._id)
     const purchases = userIds.length

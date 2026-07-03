@@ -771,3 +771,6 @@ Creating turbopack project {
  GET /login 200 in 1029ms (next.js: 379ms, application-code: 650ms)
  POST /api/auth/login 200 in 771ms (next.js: 290ms, application-code: 480ms)
  GET /dashboard 200 in 529ms (next.js: 409ms, application-code: 120ms)
+✓ Compiled in 853ms
+ GET /dashboard 200 in 827ms (next.js: 10ms, application-code: 816ms)
+ GET /dashboard 200 in 343ms (next.js: 209ms, application-code: 134ms)
